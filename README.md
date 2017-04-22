@@ -1,2 +1,2 @@
 # django-SSE
-web communications in python
+Web communications modules in python designed for SSE projects.
