@@ -25,7 +25,7 @@ SECRET_KEY = '5c#fo)+$wxingrwe33)xwh@i9tt4zhx!v^-*c=c6o_uvq-60ai'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.wangjksjtu.com.cn', u'127.0.0.1']
 
 
 # Application definition
@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 

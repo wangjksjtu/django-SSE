@@ -17,7 +17,10 @@ class CiphertextList(generics.ListCreateAPIView):
         for the currently authenticated user.
         """
         owner = self.request.user
-        return Ciphertext.objects.filter(owner=owner)
+        keystring = self.request.GET.get('keystring', '')
+        if keystring: 
+            return Ciphertext.objects.filter(owner=owner).filter(keystring=keystring)
+        else: return Ciphertext.objects.filter(owner=owner)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
