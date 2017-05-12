@@ -7,11 +7,14 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 class CiphertextList(generics.ListCreateAPIView):
-    queryset = Ciphertext.objects.all()
+    #queryset = Ciphertext.objects.all()
     serializer_class = CiphertextSerializer
 
-#    def perform_create(self, serializer):
-#        serializer.save(owner=self.request.user)
+    def get_queryset(self):
+        keystring = self.request.GET.get('keystring','')
+        if keystring:
+            return Ciphertext.objects.filter(keystring=keystring)
+        else: return Ciphertext.objects.all()
 
 class CiphertextDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Ciphertext.objects.all()
